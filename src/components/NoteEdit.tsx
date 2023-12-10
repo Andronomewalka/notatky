@@ -42,15 +42,15 @@ export const NoteEdit: FC = () => {
         });
 
         if (res) {
-            invalidateNote();
-            invalidateNotes();
-
             if (isTitleChanged) {
                 await deleteNote(note.slug);
                 navigate(`/${newSlug}`, {
                     replace: true
                 });
             }
+
+            invalidateNote();
+            invalidateNotes();
         }
     };
 
